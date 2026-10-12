@@ -15,6 +15,6 @@ Owner：cli；mod 兼容发行；主仓库汇总。状态：MUST，二进制名�
 
 ## 安装与接口边界
 
-Skill 安装独立不要求新建 Skill 仓库。首版建议放 cli/skills，Skill 名和发布 ref 后续确定。gh skill 当前为 preview，发行说明必须用所验证版本的实际帮助核对，不能把文档提案当作已存在安装入口。
+Skill 安装独立不要求新建 Skill 仓库。首版建议放 cli/skills，Skill 名和发布 ref 后续确定。发行说明使用所验证 gh skill 版本的实际安装入口。
 
-开发/验收可以使用 Python、脚本和独立 Minecraft 实例；它们不是产品运行依赖。未完成支持的平台列为未测试，不用交叉编译代替实际安装验收。
+开发/验收可以使用 Python、脚本和独立 Minecraft 实例；它们不是产品运行依赖。平台支持通过实际安装验收确认。

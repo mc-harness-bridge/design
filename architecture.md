@@ -50,11 +50,11 @@ Mod 的逻辑模块建议为同端口协议识别与成熟加密层、认证授�
 | --- | --- | --- | --- |
 | 专用服，有或无在线玩家 | 实际 Minecraft 游戏监听端口 | 服务端 Mod；调用者环境的 Go | 无需客户端 Mod、服务器 daemon、SSH 或第二控制公网端口 |
 | 整合服已发布 LAN | 实际发布的 LAN 端口 | 同一 Mod；任意可访问端口的 Go | 不默认 25565；记录世界、gameDir、实例与运行身份 |
-| 未发布 LAN 的单机 | 显式本地游戏适配入口 | 同一 Mod；本机 Go | 具体 IPC 方案待定，不以旧 Python/legacy listener 自动承接 |
-| 客户端专有能力 | 明确 client vantage | 客户端加载同一 Mod；Go | GUI、聊天发送、世界打开、连接、录制不可伪称 server capability |
+| 未发布 LAN 的单机 | 显式本地游戏适配入口 | 同一 Mod；本机 Go | 具体 IPC 方案待定 |
+| 客户端专有能力 | 明确 client vantage | 客户端加载同一 Mod；Go | 声明 GUI、聊天发送、世界打开、连接、录制的客户端来源 |
 | Hermes 无人值守接入 | 用户管理的 Hermes route | Go 原生 webhook；外部 Hermes | 模型、Gateway、会话与回复目标由 harness 管理 |
 
-代理、NAT 穿透和第三方协议分流的兼容性按实测列入矩阵，不作为默认承诺。同端口能力不得破坏普通 Minecraft 玩家协议。
+代理、NAT 穿透和第三方协议分流的兼容性按实测列入矩阵。同端口控制与普通 Minecraft 玩家协议共存。
 
 ## 三条主要链路
 

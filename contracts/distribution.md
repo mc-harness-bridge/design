@@ -10,9 +10,9 @@
 
 ## Skill 单一来源
 
-建议唯一来源为 cli/skills 下的工具 Skill。使用 gh skill 安装，并记录 repo/ref/Skill 版本及实际消费的 harness。实际 CLI 参数由已验证 gh 版本的帮助确定，不把未实现 Skill 名或 URL 写成当前安装命令。
+建议唯一来源为 cli/skills 下的工具 Skill。使用 gh skill 安装，并记录 repo/ref/Skill 版本及实际消费的 harness。安装命令随 Skill 名、发布 ref 和所验证 gh 版本确定。
 
-Skill 聚焦工具特有知识：参数、JSON、退出码、时钟、unknown、范围、资源限制和适用用例。示例不能借引用链默认加载通用实验方法。外部可选方法指导是否创建，由独立证据决定，本轮不增加仓库。
+Skill 聚焦工具特有知识：参数、JSON、退出码、时钟、unknown、范围、资源限制和适用用例。示例不能借引用链默认加载通用实验方法。通用方法指导可独立维护、按需加载。
 
 ## 版本维度
 
@@ -22,10 +22,10 @@ Skill 聚焦工具特有知识：参数、JSON、退出码、时钟、unknown、
 
 ## 全重写的兼容处理
 
-旧仓库命名已不作为新产品入口；不擅自删除/转移旧仓库或改写历史。Python/MCP/loop 的生产职责退出，仍有价值的功能在 [承接表](../traceability.md) 指定新归属。
+新产品使用 MC Harness Bridge 入口，旧仓库保留需求与实现历史。Python/MCP/loop 的生产职责退出，仍有价值的功能在 [承接表](../traceability.md) 指定新归属。
 
 旧联合安装参数、配置、缓存、manifest 和快照格式需明确兼容或拒绝及迁移方式。不能自动读取旧版本不兼容数据，也不能在升级时无说明删除用户 Skill、世界或密钥。
 
-## 首版能力宣传
+## 首版支持范围
 
-新增能力必须在真实目标 capability 中可用，文档写明支持环境和限制。未完成事项保留为 planned/not-supported。只构建出跨平台文件时，不宣传所有平台安装已验证。
+文档和目标 capability 对应实际支持环境与限制。未完成事项标记 planned/not-supported；平台支持关联安装验收记录。

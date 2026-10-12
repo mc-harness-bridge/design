@@ -1,12 +1,12 @@
 # 功能承接与来源追溯
 
-状态：2026-10-12 来源审计。这里记录需求出处与旧产品证据，**不构成新产品实现或验收证明**。公开 issue/PR 的状态会变化；下面的“已实现、待验证、讨论”描述的是审计时读到的证据。
+审计日期：2026-10-12。以下记录旧产品的需求出处、代码版本与验证状态。
 
 ## 来源优先级
 
 1. 本次产品讨论的明确决定：MC Harness Bridge 品牌与六仓库拆分；面向外部 harness；玩家可继续游玩；丰富现场上下文；`agent-hooks` 接入无人值守 Agent；当前没有世界 merge/promotion。
 2. 旧产品的明确需求、未闭环问题与实现所提供的行为证据。
-3. 旧方案、试验分支和便利流程，仅作为候选设计输入。不能因旧代码存在就原样复制，也不能因重写就丢弃需求。
+3. 旧方案、试验分支和便利流程，作为候选设计输入。
 
 旧本地产品重写合同也参与审计，但未提交内容不是公开基线。本稿将需承接的行为展开为稳定需求 ID；方案冲突以本次边界为准，具体差异见下文。
 
@@ -19,8 +19,6 @@
 | [mc-agent-interface-mod](https://github.com/guajun/mc-agent-interface-mod/tree/cfe2c34bd8139a74a85ab9c7c6fe2ef0696ff8ef) | `cfe2c34bd8139a74a85ab9c7c6fe2ef0696ff8ef` | 游戏权威数据、同端口控制、实体导出与客户端功能 |
 | [mc-agent-loop](https://github.com/guajun/mc-agent-loop/tree/a1b8bc52e1fc29c8e43f679522289c7fdf991f57) | `a1b8bc52e1fc29c8e43f679522289c7fdf991f57` | 旧 Agent loop 的职责与退役边界 |
 | [jlink-cli](https://github.com/guajun/jlink-cli/tree/b2ca13f57474638e5e26352aafe068cc043be324) | `b2ca13f57474638e5e26352aafe068cc043be324` | Agent 使用调试原语、结构化结果与工具 Skill 的参考 |
-
-HKCLR-AGV 的多仓库实践影响本次组织方式；其私有项目材料与项目专属流程不作为本产品的公开协议或强制规则。Git/worktree 约定由本组织独立起草。
 
 ## 模块来源
 
@@ -69,15 +67,15 @@ HKCLR-AGV 的多仓库实践影响本次组织方式；其私有项目材料与�
 | `exclusive_acquire` / `exclusive_renew` / `exclusive_release` / `exclusive_status` | OPS-05、OPS-06 | 协调能力与事实查询保留；具体租约接口须按冲突矩阵设计 |
 | `stop` | CON-06、CON-08 | 停止 daemon 不等于关闭游戏或解冻世界 |
 
-## 必须避免的证据误读
+## 来源状态与设计差异
 
 - meta #40 的早期方案曾包含 Go 管理实验实例。本次职责已收敛：游戏侧拍摄、Go 控制/传输、外部 Agent 管理实验实例。需要实验的能力仍保留在需求中，运行编排归属改变。
-- 旧 LAN 远程链路已有实际验证记录，不代表新实现已经通过，也不扩大为“已在两台物理机器验证”。meta #49 与相关记录需要跟随原始证据读取。
-- 旧实体导出与 NBT/order/passenger 改善不能证明磁盘世界、内存状态、随机数状态、调度队列和模组私有状态已经被一致捕获。
+- 旧 LAN 远程链路的验证拓扑和环境见 meta #49 与相关记录。
+- 旧实体导出覆盖 NBT/order/passenger；世界快照另需审计磁盘世界、内存、随机数、调度队列和模组私有状态。
 - 通用签名 Webhook 已有旧实现；Hermes 原生 Go V2 接入仍需实际接收、触发、调用工具和回复的完整证据。
-- meta [PR #54](https://github.com/guajun/mc-agent/pull/54)、[PR #56](https://github.com/guajun/mc-agent/pull/56)，bridge [PR #19](https://github.com/guajun/mc-agent-bridge/pull/19) 中的审计/方法方案不能当作已采纳能力。
-- 旧产品实现合并、真实游戏测试、发布包可下载和新用户安装成功是四类不同证据。meta #58 的消费验证不能由本次文档工作替代。
+- meta [PR #54](https://github.com/guajun/mc-agent/pull/54)、[PR #56](https://github.com/guajun/mc-agent/pull/56)，bridge [PR #19](https://github.com/guajun/mc-agent-bridge/pull/19) 中的审计/方法方案列为候选输入。
+- 旧产品的合并、游戏测试、发行与消费记录分别追踪；消费验证需求见 meta #58。
 
 ## 迁移规则
 
-已承接需求不因拆仓丢失。变更或取消需在 [decisions](decisions.md) 记录理由，并指出替代路径与用户影响。旧 issue 不在本轮自动关闭；只有新实现验收、迁移说明和发行边界明确后，才能另行决定旧仓库如何归档。
+需求变更或取消在 [decisions](decisions.md) 记录理由、替代路径与用户影响。旧仓库归档随新实现验收、迁移和发行单独规划。
