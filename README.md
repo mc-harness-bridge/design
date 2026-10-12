@@ -1,6 +1,6 @@
 # MC Harness Bridge — Design
 
-MC Harness Bridge 连接正在运行的 Minecraft 与外部 AI Agent harness，让 Agent 从玩家的现场获取上下文、观察状态、执行明确操作并取得游戏快照，同时尽量不打断玩家游玩。
+MC Harness Bridge 连接正在运行的 Minecraft 与外部 AI Agent harness，让 Agent 从玩家的现场获取上下文、观察状态、执行明确操作并取得游戏快照，同时让玩家继续游玩。
 
 **文档状态：2026-10-12 首版设计草案。** 正文记录产品边界与继承需求；协议字段、目录结构和实现方案待定。当前处于设计阶段。
 
@@ -35,6 +35,6 @@ MC Harness Bridge 连接正在运行的 Minecraft 与外部 AI Agent harness，�
 - [convention](https://github.com/mc-harness-bridge/convention)：开发、Git、worktree、验证和交付约定。
 - [agent-hooks](https://github.com/mc-harness-bridge/agent-hooks)：外部 harness 的事件接入契约、配置、样例和互操作验证。
 
-Design 说明产品需要什么和为什么；convention 说明如何开发与协作。具体线协议及跨语言 fixture 在实现前确定唯一维护位置，避免两个仓库维护不同版本的真相。
+Design 说明产品需要什么和为什么；convention 说明如何开发与协作。具体线协议及跨语言 fixture 在实现前确定唯一维护位置，各仓库引用固定版本。
 
 历史 `guajun/mc-agent*` 仓库的需求与证据见 [来源追溯](traceability.md)。
